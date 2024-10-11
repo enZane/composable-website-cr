@@ -10,7 +10,7 @@ export default async function Resolver({ root }: ResolverProps) {
 
   const query = gql(`
     query featuredProducts ($take: Int!) {
-      commerce {
+      commerce_subgraph {
         findManyProduct (
           take: $take
           where: {
@@ -36,7 +36,7 @@ export default async function Resolver({ root }: ResolverProps) {
     return []
   }
 
-  const { commerce: { findManyProduct } } = data
+  const { commerce_subgraph: { findManyProduct } } = data
 
   return findManyProduct
 }
